@@ -31,7 +31,7 @@ get_sleep_logs <- function(token, date)
     x
   })
   sleep <- suppressWarnings(cbind(
-    dplyr::select(data$sleep, -minuteData),
+    dplyr::select(data$sleep[1,], -minuteData),
     dplyr::bind_rows(data$sleep$minuteData)
   ))
   list(sleep=sleep, summary=as.data.frame(data$summary))
